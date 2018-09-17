@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msvalidate.01" content="3F17F8A1FDEAF1D63F6B2233C7FEBFF3" />
+        <title>ASP.NET Core 1.0 Tag Helpers | South Dakota Code Camp</title>
+        <meta name="description" content="ASP.NET&#x20;Core&#x20;1.0&#x20;has&#x20;introduced&#x20;Tag&#x20;Helpers&#x20;which&#x20;are&#x20;a&#x20;much&#x20;more&#x20;HTML-centric&#x20;approach&#x20;to&#x20;using&#x20;server-side&#x20;code&#x20;to&#x20;help&#x20;construct&#x20;HTML&#x20;elements&#x20;in&#x20;Razor&#x20;views.&#x20;ASP.NET&#x20;will&#x20;ship&#x20;with&#x20;built&#x20;in&#x20;tag&#x20;helpers&#x20;such&#x20;as&#x20;the&#x20;&#x201C;environment&#x201D;&#x20;that&#x20;can&#x20;include&#x20;specific&#x20;HTML&#x20;&#x28;such&#x20;as&#x20;links&#x20;to&#x20;CSS&#x20;or&#x20;script&#x20;tags&#x29;&#x20;based&#x20;on&#x20;the&#x20;level&#x20;of&#x20;server&#x20;like&#x20;development,&#x20;stage,&#x20;or&#x20;production.&#x20;Tag&#x20;helpers&#x20;provide&#x20;specific&#x20;attributes&#x20;for&#x20;elements&#x20;like&#x20;the&#x20;&#x201C;asp-fallback-&#x2A;&#x201D;&#x20;attributes&#x20;for&#x20;automatic&#x20;fallback&#x20;to&#x20;local&#x20;resources&#x20;when&#x20;they&#x20;are&#x20;not&#x20;available&#x20;from&#x20;a&#x20;CDN.&#x20;The&#x20;&#x201C;asp-append-version&#x201D;&#x20;used&#x20;on&#x20;URLs&#x20;automatically&#x20;appends&#x20;a&#x20;hash&#x20;of&#x20;the&#x20;file&#x20;contents&#x20;to&#x20;allow&#x20;aggressive&#x20;use&#x20;of&#x20;expirations&#x20;for&#x20;caching&#x20;while&#x20;forcing&#x20;server&#x20;requests&#x20;when&#x20;the&#x20;files&#x20;are&#x20;modified.&#x20;Besides&#x20;the&#x20;many&#x20;tag&#x20;helpers&#x20;provided&#x20;directly&#x20;by&#x20;ASP.NET,&#x20;it&#x20;is&#x20;also&#x20;possible&#x20;to&#x20;use&#x20;third&#x20;party&#x20;tag&#x20;helpers&#x20;or&#x20;create&#x20;your&#x20;own&#x21;&#x20;This&#x20;session&#x20;will&#x20;review&#x20;a&#x20;custom&#x20;tag&#x20;helper&#x20;used&#x20;to&#x20;augment&#x20;the&#x20;lowly&#x20;&#x201C;img&#x201D;&#x20;tag&#x20;to&#x20;provide&#x20;simple&#x20;support&#x20;for&#x20;responsive&#x20;images&#x20;that&#x20;delivers&#x20;the&#x20;most&#x20;appropriate&#x20;image&#x20;for&#x20;a&#x20;particular&#x20;device&#x20;and&#x20;use.&#x0A;">
+        <meta property="og:site_name" content="South Dakota Code Camp" />
+        <meta property="og:image" content="http://www.southdakotacodecamp.com/bundles/app/images/facebook_website_share.png">
+        <meta property="og:title" content="ASP.NET&#x20;Core&#x20;1.0&#x20;Tag&#x20;Helpers" />
+        <meta property="og:description" content="ASP.NET&#x20;Core&#x20;1.0&#x20;has&#x20;introduced&#x20;Tag&#x20;Helpers&#x20;which&#x20;are&#x20;a&#x20;much&#x20;more&#x20;HTML-centric&#x20;approach&#x20;to&#x20;using&#x20;server-side&#x20;code&#x20;to&#x20;help&#x20;construct&#x20;HTML&#x20;elements&#x20;in&#x20;Razor&#x20;views.&#x20;ASP.NET&#x20;will&#x20;ship&#x20;with&#x20;built&#x20;in&#x20;tag&#x20;helpers&#x20;such&#x20;as&#x20;the&#x20;&#x201C;environment&#x201D;&#x20;that&#x20;can&#x20;include&#x20;specific&#x20;HTML&#x20;&#x28;such&#x20;as&#x20;links&#x20;to&#x20;CSS&#x20;or&#x20;script&#x20;tags&#x29;&#x20;based&#x20;on&#x20;the&#x20;level&#x20;of&#x20;server&#x20;like&#x20;development,&#x20;stage,&#x20;or&#x20;production.&#x20;Tag&#x20;helpers&#x20;provide&#x20;specific&#x20;attributes&#x20;for&#x20;elements&#x20;like&#x20;the&#x20;&#x201C;asp-fallback-&#x2A;&#x201D;&#x20;attributes&#x20;for&#x20;automatic&#x20;fallback&#x20;to&#x20;local&#x20;resources&#x20;when&#x20;they&#x20;are&#x20;not&#x20;available&#x20;from&#x20;a&#x20;CDN.&#x20;The&#x20;&#x201C;asp-append-version&#x201D;&#x20;used&#x20;on&#x20;URLs&#x20;automatically&#x20;appends&#x20;a&#x20;hash&#x20;of&#x20;the&#x20;file&#x20;contents&#x20;to&#x20;allow&#x20;aggressive&#x20;use&#x20;of&#x20;expirations&#x20;for&#x20;caching&#x20;while&#x20;forcing&#x20;server&#x20;requests&#x20;when&#x20;the&#x20;files&#x20;are&#x20;modified.&#x20;Besides&#x20;the&#x20;many&#x20;tag&#x20;helpers&#x20;provided&#x20;directly&#x20;by&#x20;ASP.NET,&#x20;it&#x20;is&#x20;also&#x20;possible&#x20;to&#x20;use&#x20;third&#x20;party&#x20;tag&#x20;helpers&#x20;or&#x20;create&#x20;your&#x20;own&#x21;&#x20;This&#x20;session&#x20;will&#x20;review&#x20;a&#x20;custom&#x20;tag&#x20;helper&#x20;used&#x20;to&#x20;augment&#x20;the&#x20;lowly&#x20;&#x201C;img&#x201D;&#x20;tag&#x20;to&#x20;provide&#x20;simple&#x20;support&#x20;for&#x20;responsive&#x20;images&#x20;that&#x20;delivers&#x20;the&#x20;most&#x20;appropriate&#x20;image&#x20;for&#x20;a&#x20;particular&#x20;device&#x20;and&#x20;use.&#x0A;" />
+        <meta property="og:url" content="http://www.southdakotacodecamp.com/sessions/asp-net-core-1-0-tag-helpers,1" />
+                <link rel="canonical" href="1.html" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="twitter:widgets:theme" content="light">
+        <meta name="twitter:widgets:link-color" content="#55acee">
+        <meta name="twitter:widgets:border-color" content="#55acee">
+        <meta name="twitter:widgets:conversation" content="none">
+        <meta name="twitter:widgets:cards" content="hidden">
+            <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sdcodecamp" />
+    <meta name="twitter:title" content="ASP.NET&#x20;Core&#x20;1.0&#x20;Tag&#x20;Helpers" />
+    <meta name="twitter:description" content="ASP.NET&#x20;Core&#x20;1.0&#x20;has&#x20;introduced&#x20;Tag&#x20;Helpers&#x20;which&#x20;are&#x20;a&#x20;much&#x20;more&#x20;HTML-centric&#x20;approach&#x20;to&#x20;using&#x20;server-side&#x20;code&#x20;to&#x20;help&#x20;construct&#x20;HTML&#x20;elements&#x20;in&#x20;Razor&#x20;views.&#x20;ASP.NET&#x20;will&#x20;ship&#x20;with&#x20;built&#x20;in&#x20;tag&#x20;helpers&#x20;such&#x20;as&#x20;the&#x20;&#x201C;environment&#x201D;&#x20;that&#x20;can&#x20;include&#x20;specific&#x20;HTML&#x20;&#x28;such&#x20;as&#x20;links&#x20;to&#x20;CSS&#x20;or&#x20;script&#x20;tags&#x29;&#x20;based&#x20;on&#x20;the&#x20;level&#x20;of&#x20;server&#x20;like&#x20;development,&#x20;stage,&#x20;or&#x20;production.&#x20;Tag&#x20;helpers&#x20;provide&#x20;specific&#x20;attributes&#x20;for&#x20;elements&#x20;like&#x20;the&#x20;&#x201C;asp-fallback-&#x2A;&#x201D;&#x20;attributes&#x20;for&#x20;automatic&#x20;fallback&#x20;to&#x20;local&#x20;resources&#x20;when&#x20;they&#x20;are&#x20;not&#x20;available&#x20;from&#x20;a&#x20;CDN.&#x20;The&#x20;&#x201C;asp-append-version&#x201D;&#x20;used&#x20;on&#x20;URLs&#x20;automatically&#x20;appends&#x20;a&#x20;hash&#x20;of&#x20;the&#x20;file&#x20;contents&#x20;to&#x20;allow&#x20;aggressive&#x20;use&#x20;of&#x20;expirations&#x20;for&#x20;caching&#x20;while&#x20;forcing&#x20;server&#x20;requests&#x20;when&#x20;the&#x20;files&#x20;are&#x20;modified.&#x20;Besides&#x20;the&#x20;many&#x20;tag&#x20;helpers&#x20;provided&#x20;directly&#x20;by&#x20;ASP.NET,&#x20;it&#x20;is&#x20;also&#x20;possible&#x20;to&#x20;use&#x20;third&#x20;party&#x20;tag&#x20;helpers&#x20;or&#x20;create&#x20;your&#x20;own&#x21;&#x20;This&#x20;session&#x20;will&#x20;review&#x20;a&#x20;custom&#x20;tag&#x20;helper&#x20;used&#x20;to&#x20;augment&#x20;the&#x20;lowly&#x20;&#x201C;img&#x201D;&#x20;tag&#x20;to&#x20;provide&#x20;simple&#x20;support&#x20;for&#x20;responsive&#x20;images&#x20;that&#x20;delivers&#x20;the&#x20;most&#x20;appropriate&#x20;image&#x20;for&#x20;a&#x20;particular&#x20;device&#x20;and&#x20;use.&#x0A;" />
+                    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+                        <link rel="stylesheet" href="../css/e31b33c.css" />
+                            <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+        <script src="../bundles/app/javascripts/modernizr.custom.js"></script>
+        <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-26246483-1','auto');ga('send','pageview');
+</script>
+    </head>
+    <body >
+
+        <header class="main">
+    <a href="../index.html">
+                <h2 class="title">South Dakota Code Camp</h2>
+            </a>
+    <a class="open-close-menu-switch" onclick="sdcc.toggleMenu();"></a>
+                                    <nav     class="main" id="main_nav">
+                                                                
+                                        <span     class="first">                <a href="../speakers/index.html"    >Speakers</a>                            
+        </span>
+    
+                        
+                                                            <span     class="has-child-menu">                <a href="../schedule/index.html"    >Schedule</a>                                            <nav     class="menu_level_1">
+                                                                
+                                        <span     class="first">                <a href="../schedule/index.html"    >2016 Schedule</a>                            
+        </span>
+    
+                        
+                                        <span    >                <a href="index.html"    >View Sessions</a>                            
+        </span>
+    
+                        
+                                        <span     class="last">                <a href="../schedule/family/index.html"    >Family Sessions</a>                            
+        </span>
+    
+                
+        </nav>
+    
+        </span>
+    
+                        
+                                        <span    >                <a href="../sponsors/index.html"    >Sponsors</a>                            
+        </span>
+    
+                        
+                                                            <span     class="has-child-menu last">                <a href="../about-us.html"    >Information</a>                                            <nav     class="menu_level_1">
+                                                                
+                                        <span     class="first">                <a href="../about-us.html"    >About Us</a>                            
+        </span>
+    
+                        
+                                        <span    >                <a href="../code-of-conduct/index.html"    >Code of Conduct</a>                            
+        </span>
+    
+                        
+                                        <span    >                <a href="../venue/index.html"    >Venue</a>                            
+        </span>
+    
+                        
+                                        <span     class="last">                <a href="../open-spaces/index.html"    >OpenSpace</a>                            
+        </span>
+    
+                
+        </nav>
+    
+        </span>
+    
+                
+        </nav>
+    
+</header>
+
+        
+            <section class="session-show interior-content clearfix">
+
+        <h1 class="pagetitle cutout">ASP.NET Core 1.0 Tag Helpers</h1>
+                <p class="attribution">
+            Presented by:
+                                            <a href="../speakers/1.html">Robert Boedigheimer</a>                                    </p>
+        
+        <div class="abstract"><p>ASP.NET Core 1.0 has introduced Tag Helpers which are a much more HTML-centric approach to using server-side code to help construct HTML elements in Razor views. ASP.NET will ship with built in tag helpers such as the “environment” that can include specific HTML (such as links to CSS or script tags) based on the level of server like development, stage, or production. Tag helpers provide specific attributes for elements like the “asp-fallback-*” attributes for automatic fallback to local resources when they are not available from a CDN. The “asp-append-version” used on URLs automatically appends a hash of the file contents to allow aggressive use of expirations for caching while forcing server requests when the files are modified. Besides the many tag helpers provided directly by ASP.NET, it is also possible to use third party tag helpers or create your own! This session will review a custom tag helper used to augment the lowly “img” tag to provide simple support for responsive images that delivers the most appropriate image for a particular device and use.</p>
+</div>
+
+    </section>
+
+        <footer class="main">
+    <div class="top">
+        <a href="https://twitter.com/sdcodecamp" class="twitter-follow-button" data-show-count="false" data-lang="en" data-align="right">Follow @sdcodecamp</a>
+        <a class="g-plus-link" href="https://plus.google.com/117784575670240245598" rel="publisher">Google+</a>
+        <a href="../index.html">
+            <div class="title">
+                South Dakota Code Camp
+            </div>
+        </a>
+    </div>
+    <div class="bottom">
+        <p class="right">Website created and maintained by the <a href="https://github.com/sfdevs/sdcodecamp/graphs/contributors" target="_blank">SF Devs Community</a>.</p>
+        <p class="left">All Rights Reserved. Copyright 2018 South Dakota Code Camp</p>
+    </div>
+</footer>
+
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+                        <script src="../js/a7bd365.js"></script>
+                            <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </body>
+</html>

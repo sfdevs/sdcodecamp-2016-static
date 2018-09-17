@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msvalidate.01" content="3F17F8A1FDEAF1D63F6B2233C7FEBFF3" />
+        <title>Refactoring Realities: What Home Renovation Can Teach Us About Refactoring Our Code | South Dakota Code Camp</title>
+        <meta name="description" content="Congratulations&#x21;&#x20;You&#x27;re&#x20;now&#x20;the&#x20;proud&#x20;&#x28;or&#x20;not&#x29;&#x20;owner&#x20;of&#x20;that&#x20;legacy&#x20;system.&#x20;You&#x27;re&#x20;excited&#x20;to&#x20;get&#x20;to&#x20;work&#x20;on&#x20;that&#x20;fixer-upper,&#x20;but&#x20;as&#x20;you&#x20;start&#x20;digging&#x20;in,&#x20;you&#x20;realize&#x20;that&#x20;there&#x20;are&#x20;more&#x20;problems&#x20;than&#x20;you&#x20;thought.&#x20;Whole&#x20;sections&#x20;of&#x20;the&#x20;plumbing&#x20;were&#x20;created&#x20;with&#x20;tools&#x20;that&#x20;you&#x20;don&#x27;t&#x20;even&#x20;recognize.&#x20;As&#x20;you&#x20;move&#x20;deeper,&#x20;you&#x27;re&#x20;amazed&#x20;that&#x20;the&#x20;whole&#x20;thing&#x20;hasn&#x27;t&#x20;collapsed&#x20;under&#x20;its&#x20;own&#x20;weight.&#x20;Let&#x27;s&#x20;dig&#x20;into&#x20;what&#x20;can&#x20;be&#x20;done&#x20;ahead&#x20;of&#x20;time&#x20;to&#x20;solve&#x20;some&#x20;of&#x20;these&#x20;problems&#x20;and&#x20;how&#x20;we&#x20;can&#x20;fix&#x20;them&#x20;now&#x20;that&#x20;it&#x27;s&#x20;our&#x20;problem.&#x0A;">
+        <meta property="og:site_name" content="South Dakota Code Camp" />
+        <meta property="og:image" content="http://www.southdakotacodecamp.com/bundles/app/images/facebook_website_share.png">
+        <meta property="og:title" content="Refactoring&#x20;Realities&#x3A;&#x20;What&#x20;Home&#x20;Renovation&#x20;Can&#x20;Teach&#x20;Us&#x20;About&#x20;Refactoring&#x20;Our&#x20;Code" />
+        <meta property="og:description" content="Congratulations&#x21;&#x20;You&#x27;re&#x20;now&#x20;the&#x20;proud&#x20;&#x28;or&#x20;not&#x29;&#x20;owner&#x20;of&#x20;that&#x20;legacy&#x20;system.&#x20;You&#x27;re&#x20;excited&#x20;to&#x20;get&#x20;to&#x20;work&#x20;on&#x20;that&#x20;fixer-upper,&#x20;but&#x20;as&#x20;you&#x20;start&#x20;digging&#x20;in,&#x20;you&#x20;realize&#x20;that&#x20;there&#x20;are&#x20;more&#x20;problems&#x20;than&#x20;you&#x20;thought.&#x20;Whole&#x20;sections&#x20;of&#x20;the&#x20;plumbing&#x20;were&#x20;created&#x20;with&#x20;tools&#x20;that&#x20;you&#x20;don&#x27;t&#x20;even&#x20;recognize.&#x20;As&#x20;you&#x20;move&#x20;deeper,&#x20;you&#x27;re&#x20;amazed&#x20;that&#x20;the&#x20;whole&#x20;thing&#x20;hasn&#x27;t&#x20;collapsed&#x20;under&#x20;its&#x20;own&#x20;weight.&#x20;Let&#x27;s&#x20;dig&#x20;into&#x20;what&#x20;can&#x20;be&#x20;done&#x20;ahead&#x20;of&#x20;time&#x20;to&#x20;solve&#x20;some&#x20;of&#x20;these&#x20;problems&#x20;and&#x20;how&#x20;we&#x20;can&#x20;fix&#x20;them&#x20;now&#x20;that&#x20;it&#x27;s&#x20;our&#x20;problem.&#x0A;" />
+        <meta property="og:url" content="http://www.southdakotacodecamp.com/sessions/refactoring-realities,11" />
+                <link rel="canonical" href="11.html" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="twitter:widgets:theme" content="light">
+        <meta name="twitter:widgets:link-color" content="#55acee">
+        <meta name="twitter:widgets:border-color" content="#55acee">
+        <meta name="twitter:widgets:conversation" content="none">
+        <meta name="twitter:widgets:cards" content="hidden">
+            <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sdcodecamp" />
+    <meta name="twitter:title" content="Refactoring&#x20;Realities&#x3A;&#x20;What&#x20;Home&#x20;Renovation&#x20;Can&#x20;Teach&#x20;Us&#x20;About&#x20;Refactoring&#x20;Our&#x20;Code" />
+    <meta name="twitter:description" content="Congratulations&#x21;&#x20;You&#x27;re&#x20;now&#x20;the&#x20;proud&#x20;&#x28;or&#x20;not&#x29;&#x20;owner&#x20;of&#x20;that&#x20;legacy&#x20;system.&#x20;You&#x27;re&#x20;excited&#x20;to&#x20;get&#x20;to&#x20;work&#x20;on&#x20;that&#x20;fixer-upper,&#x20;but&#x20;as&#x20;you&#x20;start&#x20;digging&#x20;in,&#x20;you&#x20;realize&#x20;that&#x20;there&#x20;are&#x20;more&#x20;problems&#x20;than&#x20;you&#x20;thought.&#x20;Whole&#x20;sections&#x20;of&#x20;the&#x20;plumbing&#x20;were&#x20;created&#x20;with&#x20;tools&#x20;that&#x20;you&#x20;don&#x27;t&#x20;even&#x20;recognize.&#x20;As&#x20;you&#x20;move&#x20;deeper,&#x20;you&#x27;re&#x20;amazed&#x20;that&#x20;the&#x20;whole&#x20;thing&#x20;hasn&#x27;t&#x20;collapsed&#x20;under&#x20;its&#x20;own&#x20;weight.&#x20;Let&#x27;s&#x20;dig&#x20;into&#x20;what&#x20;can&#x20;be&#x20;done&#x20;ahead&#x20;of&#x20;time&#x20;to&#x20;solve&#x20;some&#x20;of&#x20;these&#x20;problems&#x20;and&#x20;how&#x20;we&#x20;can&#x20;fix&#x20;them&#x20;now&#x20;that&#x20;it&#x27;s&#x20;our&#x20;problem.&#x0A;" />
+                    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+                        <link rel="stylesheet" href="../css/e31b33c.css" />
+                            <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+        <script src="../bundles/app/javascripts/modernizr.custom.js"></script>
+        <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-26246483-1','auto');ga('send','pageview');
+</script>
+    </head>
+    <body >
+
+        <header class="main">
+    <a href="../index.html">
+                <h2 class="title">South Dakota Code Camp</h2>
+            </a>
+    <a class="open-close-menu-switch" onclick="sdcc.toggleMenu();"></a>
+                                    <nav     class="main" id="main_nav">
+                                                                
+                                        <span     class="first">                <a href="../speakers/index.html"    >Speakers</a>                            
+        </span>
+    
+                        
+                                                            <span     class="has-child-menu">                <a href="../schedule/index.html"    >Schedule</a>                                            <nav     class="menu_level_1">
+                                                                
+                                        <span     class="first">                <a href="../schedule/index.html"    >2016 Schedule</a>                            
+        </span>
+    
+                        
+                                        <span    >                <a href="index.html"    >View Sessions</a>                            
+        </span>
+    
+                        
+                                        <span     class="last">                <a href="../schedule/family/index.html"    >Family Sessions</a>                            
+        </span>
+    
+                
+        </nav>
+    
+        </span>
+    
+                        
+                                        <span    >                <a href="../sponsors/index.html"    >Sponsors</a>                            
+        </span>
+    
+                        
+                                                            <span     class="has-child-menu last">                <a href="../about-us.html"    >Information</a>                                            <nav     class="menu_level_1">
+                                                                
+                                        <span     class="first">                <a href="../about-us.html"    >About Us</a>                            
+        </span>
+    
+                        
+                                        <span    >                <a href="../code-of-conduct/index.html"    >Code of Conduct</a>                            
+        </span>
+    
+                        
+                                        <span    >                <a href="../venue/index.html"    >Venue</a>                            
+        </span>
+    
+                        
+                                        <span     class="last">                <a href="../open-spaces/index.html"    >OpenSpace</a>                            
+        </span>
+    
+                
+        </nav>
+    
+        </span>
+    
+                
+        </nav>
+    
+</header>
+
+        
+            <section class="session-show interior-content clearfix">
+
+        <h1 class="pagetitle cutout">Refactoring Realities: What Home Renovation Can Teach Us About Refactoring Our Code</h1>
+                <p class="attribution">
+            Presented by:
+                                            <a href="../speakers/9.html">Joel Kauffman</a>                                    </p>
+        
+        <div class="abstract"><p>Congratulations! You're now the proud (or not) owner of that legacy system. You're excited to get to work on that fixer-upper, but as you start digging in, you realize that there are more problems than you thought. Whole sections of the plumbing were created with tools that you don't even recognize. As you move deeper, you're amazed that the whole thing hasn't collapsed under its own weight. Let's dig into what can be done ahead of time to solve some of these problems and how we can fix them now that it's our problem.</p>
+</div>
+
+    </section>
+
+        <footer class="main">
+    <div class="top">
+        <a href="https://twitter.com/sdcodecamp" class="twitter-follow-button" data-show-count="false" data-lang="en" data-align="right">Follow @sdcodecamp</a>
+        <a class="g-plus-link" href="https://plus.google.com/117784575670240245598" rel="publisher">Google+</a>
+        <a href="../index.html">
+            <div class="title">
+                South Dakota Code Camp
+            </div>
+        </a>
+    </div>
+    <div class="bottom">
+        <p class="right">Website created and maintained by the <a href="https://github.com/sfdevs/sdcodecamp/graphs/contributors" target="_blank">SF Devs Community</a>.</p>
+        <p class="left">All Rights Reserved. Copyright 2018 South Dakota Code Camp</p>
+    </div>
+</footer>
+
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+                        <script src="../js/a7bd365.js"></script>
+                            <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </body>
+</html>
