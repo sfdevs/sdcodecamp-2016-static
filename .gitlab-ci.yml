@@ -1,6 +1,6 @@
 pages:
-#  script:
-#    - mkdir public/
+  script:
+    - echo "deploy"
 
   artifacts:
     paths:
