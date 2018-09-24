@@ -1,9 +1,0 @@
-pages:
-  script:
-    - echo "deploy"
-
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
